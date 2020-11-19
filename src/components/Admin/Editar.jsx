@@ -49,7 +49,7 @@ export const Editar = () => {
 
   const cargar = async () => {
     const resp = await fetch(
-      `https://movieweb-react.herokuapp.com/peliculas/${id}`
+      `${process.env.REACT_APP_API_URL}/${id}`
     );
     const data = await resp.json();
     const pelicula =  data.pelicula;

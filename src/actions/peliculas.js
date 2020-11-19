@@ -122,7 +122,7 @@ const getTrailers = (trailers) => ({
 
 export const StartGetPeliculaById = (id) => {
     return async (dispatch) => {
-        const resp = await fetch(`https://movieweb-react.herokuapp.com/peliculas/${id}`)
+        const resp = await fetch(`${process.env.REACT_APP_API_URL}/${id}`)
         const data = await resp.json()
         const pelicula = data.pelicula
 
@@ -161,25 +161,25 @@ export const StartCreateMovie = (imagen, data) => {
         try {
 
             data.imagen = imagen
-
-            const resp = await fetch('http://movieweb-react.herokuapp.com/peliculas/nueva', {
+          
+            const resp = await fetch(`${process.env.REACT_APP_API_URL}/nueva`, {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
                 },
                 body: JSON.stringify(data)
             })
-
+            
             const body = await resp.json()
-            dispatch(createMovie(data))
-            Swal.fire({
-                icon: 'success',
-                title: body.msg,
-                showConfirmButton: false,
-                timer: 1500
-            })
-            console.log(body.msg)
-
+            
+                dispatch(createMovie(data))
+                Swal.fire({
+                    icon: 'success',
+                    title: body.msg,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+        
         } catch (error) {
             console.log(error)
         }
@@ -204,7 +204,7 @@ export const StartDelete = (id) => {
                 confirmButtonText: 'Si,Borrar!'
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    const resp = await fetch(`http://movieweb-react.herokuapp.com/peliculas/delete/${id}`, {
+                    const resp = await fetch(`${process.env.REACT_APP_API_URL}/delete/${id}`, {
                         method: "DELETE"
                     })
                     const body = await resp.json()
@@ -235,7 +235,7 @@ export const StartUpdateMovie=(id,data,imagen)=>{
 
         try {
             data.imagen = imagen
-            const resp = await fetch(`https://movieweb-react.herokuapp.com/peliculas/update/${id}`,{
+            const resp = await fetch(`${process.env.REACT_APP_API_URL}/update/${id}`,{
                 method:"PUT",
                 headers: {
                     'Content-type': 'application/json'
@@ -243,8 +243,8 @@ export const StartUpdateMovie=(id,data,imagen)=>{
                 body:JSON.stringify(data)
             })
 
-            // const body= await resp.json()
-           
+            const body= await resp.json()
+           console.log(body.errors.errors)
             Swal.fire({
                 icon: "success",
                 title: "Pelicula Actualizada con Exito",

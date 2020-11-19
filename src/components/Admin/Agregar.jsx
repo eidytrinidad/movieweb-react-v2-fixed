@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 import { StartCreateMovie } from "../../actions/peliculas";
 import { projectStorage } from "../../firebase/config";
 import { useForm } from "../../hooks/useForm";
@@ -20,9 +21,9 @@ const initialState = {
 };
 
 export const Agregar = () => {
-  
   const dispatch = useDispatch();
   const fileRef = useRef();
+  const [error, setError] = useState(false)
   const [formValues, handleInputChange, reset] = useForm(initialState);
 
   const {
@@ -42,24 +43,55 @@ export const Agregar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const storageRef = projectStorage.ref();
-    const photo = fileRef.current.files[0];
-    const imagen = photo.name;
-    const metadata = {
-      contentType: photo.type,
-    };
-
-    storageRef
-      .child(imagen)
-      .put(photo, metadata)
-      .then((snapshot) => snapshot.ref.getDownloadURL())
-      .then(async (url) => {
-        const imagen = url;
-        dispatch(StartCreateMovie(imagen, formValues));
+    if (titulo=="") {
+      setError(true)
+    }
+    if (error===true) {
+      
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text:`Verifique que no haya campos vacios,(descarga,online,trailer pueden queda vacios)`
       });
-      reset()
-  };
+    } else {
+            // Swal.fire({
+      //   text: "Espere...",
+      //   allowOutsideClick: false,
+      //   icon: "info"
+  
+      // });
+      // Swal.showLoading()
+      
+      const storageRef = projectStorage.ref();
+      const photo = fileRef.current.files[0];
+  
+      if (photo === undefined) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "El Campo Foto no puede quedar vacio",
+        });
+      } else {
+        const imagen = photo.name;
+        const metadata = { contentType: photo.type };
+        storageRef
+          .child(imagen)
+          .put(photo, metadata)
+          .then((snapshot) => snapshot.ref.getDownloadURL())
+          .then(async (url) => {
+            const imagen = url;
+            dispatch(StartCreateMovie(imagen, formValues));
+          });
+      }
+    }
+    
+    
 
+    
+
+    // reset()
+  };
+const handleError=()=>{}
   return (
     <section className="AdminGrid">
       <article className="contenedor">
@@ -69,8 +101,15 @@ export const Agregar = () => {
           <section className="row">
             <article className="col-12 col-md-4 col-lg-4">
               <div className="form-group">
+              {
+                error
+               &&
+                <span className="text-danger">* El Campo titulo no puede estar vacio</span>
+                
+              }
                 <label htmlFor="titulo">Titulo</label>
                 <input
+                onBlur={handleError}
                   onChange={handleInputChange}
                   type="text"
                   name="titulo"
@@ -82,6 +121,7 @@ export const Agregar = () => {
 
             <article className="col-12 col-md-4 col-lg-4">
               <div className="form-group">
+
                 <label htmlFor="titulos">Titulos Adicionales</label>
                 <input
                   onChange={handleInputChange}
@@ -153,14 +193,12 @@ export const Agregar = () => {
               <div className="form-group">
                 <label htmlFor="imagen">Imagen</label>
                 <input
-                
                   id="imagen"
                   ref={fileRef}
                   onChange={handleInputChange}
                   type="file"
                   name="imagen"
                   value={imagen}
-                 
                 />
               </div>
             </article>
