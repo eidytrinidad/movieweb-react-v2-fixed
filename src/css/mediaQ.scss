@@ -1,0 +1,213 @@
+@media only screen and (max-width:768px){
+    .bannerPlayer{
+            width:100%;
+            height: 350px;
+         }
+    .movieInfo {
+     
+        padding: 0 80px;
+
+    }
+    header{
+        padding: 0 30px;
+    }
+
+    main {
+        .contenedor {
+    
+            .MovieGrid {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;   
+            }
+
+            .detallePelicula{
+                flex-direction:column ;
+                align-items: center;
+                
+                .portada{
+                    margin-bottom: 3rem;
+                    
+                }
+
+                .texto{
+                    padding: 0 20px;
+                }
+            }
+
+            .links{
+               
+                padding-top: 5rem;
+                h3{
+                    font-size: 1.5rem;
+                   margin-top: -50px;
+                }
+
+                a{
+                    max-width: 200px;
+                    img{
+
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+@media only screen and (max-width:425px){
+
+    .banner{
+       
+        .movieInfo {
+           
+            padding: 90px 20px;
+            h2{
+                font-size: 1.7rem;
+            }
+            .detalle {
+                line-height:28px;
+                font-size: 1rem;
+              
+            }
+            .btnBox {
+           
+        
+                .btnInfo{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                }
+        
+                .btnBanner{
+              
+                    font-size: 1rem;
+                }
+               
+            }
+        
+    
+        }
+    }
+
+    main {
+        width: 100%;
+        //height: 1700px;
+        background-color: $Gris-Claro;
+    
+        .contenedor {
+    
+            .tituloPelicula{
+                font-size: 2rem;
+            }
+            .MenuBotones {
+
+                flex-direction: column;
+                a {
+                    text-align: center;
+                    padding: 25px 15px;
+                    border: none;
+                    background: none;
+                    color: $Gris-Oscuro;
+                    font-weight: 500;
+                    font-size: 0.95rem;
+    
+                    &:focus {
+                        outline: none;
+                    }
+    
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+            }
+    
+          
+            .MovieGrid {
+     
+                justify-content: center;
+
+                .movie{
+                    text-align: center;
+                    width: 70%;
+               
+                    img{
+                        width: 100%;
+                    }
+
+                    .puntuacion {
+                        margin: auto;
+                    }
+              
+                }
+
+                .playerSection{
+                    margin-top: 4.0625rem;
+                    margin-bottom: 2rem;
+                    width: 100%;
+                   
+                    display: flex;
+                    justify-content: space-between;
+                    .player{
+                       
+                      width: 100%;
+                      max-width: 350px;
+                      margin: auto;
+                     }
+                     iframe{
+                        box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.34);
+                        width:100%;
+                      
+                        height:350px;
+                     }
+                }
+                .trailers{
+                    width: 100%;
+                    display: flex;
+                
+                     .trailer{
+                        margin: 2rem auto;
+                        
+                     }
+         
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:375px){
+
+    .banner{
+        height: 799px;
+        .movieInfo {
+
+            height: 600px;
+          
+            padding-top: 90px;
+     
+            .detalle {
+                font-size: 0.95rem;
+            
+            }
+        
+           
+            .btnBox {
+    
+                flex-direction: column;
+                align-items: center;
+                padding-bottom: 70px;
+        
+                .btnBanner{
+
+                    margin-bottom:1.5rem;
+                  
+                }
+               
+            }
+        }
+    }
+ 
+}

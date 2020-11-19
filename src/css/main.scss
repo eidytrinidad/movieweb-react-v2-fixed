@@ -1,0 +1,301 @@
+main {
+    width: 100%;
+    //height: 1700px;
+    background-color: $Gris-Claro;
+
+    .contenedor {
+
+        .MenuBotones {
+            width: 100%;
+            padding-top: 37px;
+            display: flex;
+            justify-content: space-evenly;
+
+            a {
+                text-decoration: none;
+                padding: 2.1875rem 1.5625rem;
+                border: none;
+                background: none;
+                color: $Gris-Oscuro;
+                font-weight: 500;
+                font-size: 1rem;
+                transition: all 1s;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $Rojo;
+                    color:$Blanco;
+                    
+                }
+            }
+
+            .active {
+
+                color: $Rojo;
+                border-bottom: 3px solid $Rojo;
+            }
+
+        }
+
+        hr {
+            width: 92%;
+            color: #dadada;
+            margin: auto;
+        }
+
+        .MovieGrid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .loading{
+                padding-top: 7rem;
+               text-align: center;
+               margin: auto;
+               display: block;
+               color: $Rojo;
+            }
+
+            ///Stylos Pagina Trailers
+            .playerSection{
+                margin-top: 4.0625rem;
+                margin-bottom: 2rem;
+                width: 100%;
+               
+                display: flex;
+                justify-content: space-between;
+                .player{
+                   
+                  width: 100%;
+                  max-width: 550px;
+                 }
+                 iframe{
+                    box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.34);
+                    width:100%;
+                    max-width: 550px;
+                    height:350px;
+                 }
+
+                 .text{
+                     width: 100%;
+                     max-width: 400px;
+                    display: none;
+                 }
+            }
+            .trailers{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                 .trailer{
+                 
+                    box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.34);
+                    width: 100%;
+                    max-width: 220px;
+                    margin-bottom: 2rem;
+                     img{
+                         width: 100%;
+                         max-width: 220px;
+                         height: 350px;
+
+                     }
+
+                     .btnVerTrailer{
+                         background:$Rojo ;
+                         border: none;
+                        width: 100%;
+                        height: 50px;
+                         color: $Blanco;
+                        //  border-radius: 1rem;
+                         margin: auto;
+                         display: block;
+                         cursor: pointer;
+                         text-decoration: none;
+                         font-size: 18px;
+                         line-height: 50px;
+                         text-align: center;
+                         &:hover{
+                            background:rgb(166, 7, 7) ;
+                         }
+                     }
+                 }
+     
+            }
+
+            ///Stylos Pagina Trailers
+
+            .movie {
+              
+                margin-top: 4.0625rem;
+                width: 100%;
+                max-width: 300px;
+                background-color: $Blanco;
+                box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.34);
+                
+              
+                .imagen{
+                    overflow: hidden;
+                    position: relative;
+                    //background-color: #ff0000;
+                    img{
+                        width: 100%;
+                        height:450px;
+                    }
+                    .overlay {
+                        position: absolute;
+                        transition: all 1s;
+                        left: 100%;
+                        display: block;
+                        width: 100%;
+                        height:99%;
+                        background-image: linear-gradient(rgba($color: #000, $alpha: 0.8), rgba($color: #0c0c0c, $alpha: 0.8));
+                        // background:rgba($color: #000000, $alpha: 1);
+                        // mix-blend-mode: multiply;
+    
+                        .info {
+                            width: 100%;
+                            height:100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                          
+                          
+                            p {
+                                color: $Gris-Claro;
+                                font-size: 15px;
+                                font-weight: 600;
+                                text-align: center;
+                                margin-bottom: 1.5rem;
+                            }
+    
+                            .btnVerMas {
+                                display: block;
+                                text-align: center;
+                                line-height: 45px;
+                                text-decoration: none;
+                                background: none;
+                                color: $Blanco;
+                                border: 1px solid $Gris-Claro;
+                                font-weight: normal;
+                                font-size: 1rem;
+                                width: 100%;
+                                max-width: 177px;
+                                height: 45px;
+                                transition: all 1s;
+                                &:hover{
+                                    background: $Rojo;
+                                    border: 2px solid $Rojo;
+                                    cursor: pointer;
+                                    }
+                                    &:focus{
+                                        outline: none;
+                                    }
+                            }
+                        }
+                    }
+    
+                    &:hover {
+                   
+                        cursor: pointer;
+                        .overlay {
+                            display: block;
+                            left: 0%;
+                        }
+                    }
+        
+                }
+                .texto {
+                    width: 100%;
+                    padding: 1.25rem;
+
+                    h4 {
+                        font-size: 1.0625rem;
+                        font-weight: 600;
+                        color: $Gris-Oscuro;
+                        margin-bottom: 0.625rem;
+                    }
+
+                    .genero {
+                        font-size: 0.8125rem;
+                        color: $Rojo;
+                        font-weight: 500;
+                        margin-bottom: 15px;
+                    }
+
+                    .puntuacion {
+                        width: 100%;
+                        max-width: 150px;
+                        display: flex;
+                        align-items: center;
+                        // justify-content: space-between;
+                        margin-bottom: 10px;
+
+                        i {
+                            color: gold;
+                        }
+
+                        p {
+                            color: $Gris-Oscuro;
+                            margin: 0 10px;
+                           
+                            font-size: 1.25rem;
+                            font-weight: 500;
+                        }
+                       
+                    }
+                    .admin{
+                        width: 100%;
+                        max-width: 150px;
+                        display: flex;
+                        align-items: center;
+                        // justify-content: space-between;
+                        margin-bottom: 10px;
+                        a{
+                            background:$Rojo;
+                            padding:8px 15px;
+                            color:#fff;
+                            border-radius:0.5rem;
+                            text-decoration:none;
+                            &:hover{
+                                background: lighten($color: $Rojo, $amount: 7);
+                            }
+                           }
+                    }
+                }
+
+                
+            }
+
+
+
+        }
+
+        .btnBox
+        {
+            width: 100%;
+            max-width: 50px;
+            margin:  auto;
+            padding: 80px 0;
+            .btnMas {
+
+                background: none;
+                border: none;
+                
+                //background-color: #fff;
+                display: block;
+    
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+        
+
+
+    }
+}

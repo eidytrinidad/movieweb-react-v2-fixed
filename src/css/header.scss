@@ -1,0 +1,58 @@
+header{
+    width: 100%;
+    padding-top: 25px;
+    color:$Blanco;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .menu{
+      
+        .btnBurger{
+            @include btn;
+            i{
+               
+                font-size:2rem;
+            }
+
+            &:hover{
+                cursor: pointer;
+                color: $Rojo;
+            }
+        }
+
+    }
+
+    .busqueda{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        //background-color: red;
+        width: 100%;
+        max-width: 100px;
+        .btnSearch{
+            @include btn;
+            i{
+               
+                font-size:1.5rem;
+            }
+        }
+        .btnLogout{
+            @include btn;
+            i{
+               
+                font-size:1.5rem;
+            }
+        }
+
+        .btnAgregar{
+            @include btn;
+            border-radius: 50%;
+
+            i{
+                color: $Blanco;
+                margin: 0 20px ;
+                font-size:1.5rem;
+            }
+        }
+    }
+}

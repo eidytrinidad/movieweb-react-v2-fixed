@@ -1,0 +1,50 @@
+.login{
+    width: 100%;
+    height: 900px;
+    padding-top: 40px;
+     background-color: $Gris-Claro;
+
+    .container{
+        width: 100%;
+        max-width: 600px;
+        padding: 80px;
+        background: $Blanco;
+        border-radius: 0.5rem;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        h1{
+            text-align: center;
+            color: $Gris-Oscuro;
+            margin-bottom: 40px;
+        }
+        form{
+            input{
+                display: block;
+                border: 1px solid #ccd0d4;
+                margin: 10px auto;
+                
+                outline: none;
+                padding-left: 10px;
+            
+            }
+            label{
+                color: $Gris-Oscuro;
+                font-weight: 600;
+            }
+            .btn{
+                
+                width: 100px;
+                height: 40px;
+                margin-top: 15px;
+                border: 0;
+                background-color: red;
+                color: white;
+                font-weight: 700;
+                
+            }
+        }
+    }
+}
