@@ -34,11 +34,6 @@ header{
             margin-bottom: 70px;
         }
 
-        .Mensajes {
-            width: 100%;
-            max-width: 400px;
-            margin: auto;
-        }
 
         form {
             width: 100%;
@@ -46,6 +41,7 @@ header{
             padding: 10px;
             margin: auto;
 
+            
             .error{
                 &::placeholder {
                     color: red;
