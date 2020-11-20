@@ -10,8 +10,7 @@ export const StartLogin=(email,password)=>{
         .then(({user})=>{
                 
             dispatch(login(user.uid,user.email))
-            console.log(user)
-            console.log(user.email)
+           
         }).catch(err=>{
             console.log(err)
             Swal.fire('Error',err.message,'error')

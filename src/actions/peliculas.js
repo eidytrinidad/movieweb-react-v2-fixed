@@ -244,7 +244,7 @@ export const StartUpdateMovie=(id,data,imagen)=>{
             })
 
             const body= await resp.json()
-           console.log(body.errors.errors)
+        
             Swal.fire({
                 icon: "success",
                 title: "Pelicula Actualizada con Exito",
