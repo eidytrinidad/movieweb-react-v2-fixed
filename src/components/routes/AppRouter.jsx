@@ -37,8 +37,9 @@ function AppRouter() {
                 path="/admin" 
                 component={Admin}
                 isLoggedIn={isLoggedIn}/>
+
           <PublicRoute 
-            
+                exact
                 path="/login" 
                 component={Login}
                 isLoggedIn={isLoggedIn}

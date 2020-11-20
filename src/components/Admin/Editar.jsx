@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import {
   StartDelete,
-  StartGetPeliculaById,
+
   StartUpdateMovie,
 } from "../../actions/peliculas";
 import { projectStorage } from "../../firebase/config";
@@ -24,8 +24,9 @@ const initialState = {
   seccion: "",
 };
 
-export const Editar = () => {
+export const Editar = ({history}) => {
   const { id } = useParams();
+  
 
   const dispatch = useDispatch();
   const [formValues, setFormValues] = useState(initialState);
@@ -125,6 +126,7 @@ export const Editar = () => {
 
   const handleDelete = () => {
     dispatch(StartDelete(id));
+   
   };
 
   const handleInputChange = ({ target }) => {

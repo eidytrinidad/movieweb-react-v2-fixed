@@ -36,6 +36,7 @@ export const Header = () => {
       >
         <Link to="/home">INICIO</Link>
         <a href="">NOSOTROS</a>
+        <Link to="/login">LOGIN <i className="fas fa-sign-in-alt"></i></Link>
         <i className="fas fa-ticket-alt"></i>
       </div>
 
