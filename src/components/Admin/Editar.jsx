@@ -68,6 +68,42 @@ export const Editar = () => {
 
   const handleSubmit = (e) => {
 
+    if (titulo == "") {
+      return setError(true);
+    }
+    if (genero == "") {
+      return setError(true);
+    }
+    if (director == "") {
+      return setError(true);
+    }
+    if (audio == "") {
+      return setError(true);
+    }
+    if (elenco == "") {
+      return setError(true);
+    }
+    if (plot == "") {
+      return setError(true);
+    }
+    if (puntuacion == "") {
+      return setError(true);
+    }
+    if (titulos == "") {
+      return setError(true);
+    }
+    if (seccion == "") {
+      return setError(true);
+    }
+
+    Swal.fire({
+      text: "Espere...",
+      allowOutsideClick: false,
+      icon: "info",
+    });
+    Swal.showLoading();
+
+
     e.preventDefault();
     const storageRef = projectStorage.ref();
     const photo = fileRef.current.files[0];
@@ -85,7 +121,7 @@ export const Editar = () => {
           const imagen = url;
           dispatch(StartUpdateMovie(id, formValues,imagen));
         });
-    }{
+    }else{
       dispatch(StartUpdateMovie(id, formValues));
   
      

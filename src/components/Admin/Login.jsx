@@ -10,8 +10,7 @@ export const Login = ({history}) => {
     email:'',
     password:""
   })
-  console.log(history);
-console.log(uid);
+
   let {email,password} =formvalues
 
 
